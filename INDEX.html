@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10131d">
+  <title>Prompt2Video Studio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>🎬 Prompt2Video Studio</h1>
+    <p>Turn your ideas into AI videos.</p>
+
+    <label for="prompt">Describe your video</label>
+    <textarea id="prompt" placeholder="Example: A cute 3D cartoon frog eating a giant spicy chili..."></textarea>
+
+    <label for="ratio">Video format</label>
+    <select id="ratio">
+      <option>9:16 - Reels / Shorts</option>
+      <option>16:9 - YouTube</option>
+    </select>
+
+    <label for="duration">Video duration</label>
+    <select id="duration">
+      <option>10 seconds</option>
+      <option>15 seconds</option>
+    </select>
+
+    <button onclick="prepareVideo()">Prepare Video</button>
+    <p id="message"></p>
+  </main>
+
+  <script>
+    function prepareVideo() {
+      const prompt = document.getElementById("prompt").value.trim();
+      const ratio = document.getElementById("ratio").value;
+      const duration = document.getElementById("duration").value;
+
+      if (!prompt) {
+        document.getElementById("message").textContent = "Please enter your video prompt!";
+        return;
+      }
+
+      document.getElementById("message").textContent =
+        "Your request is ready! " + ratio + " | " + duration +
+        ". AI video API will be connected next.";
+    }
+  </script>
+</body>
+</html>
